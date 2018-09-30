@@ -36,10 +36,10 @@ export default function xhr(method, url, entity) {
       console.log('Le transfert est terminé. (peut importe le résultat)');
     }
 
-    req.onprogress = onProgress;
-    req.onerror = onError;
-    req.onload = onLoad;
-    req.onloadend = onLoadEnd;
+    req.addEventListener('progress', onProgress, false);
+    req.addEventListener('error', onError, false);
+    req.addEventListener('load', onLoad, false);
+    req.addEventListener('loadend', onLoadEnd, false);
 
     req.open(method, url);
     req.setRequestHeader('Content-type', 'application/json; charset=utf-8');
